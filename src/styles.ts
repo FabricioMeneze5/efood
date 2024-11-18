@@ -2,7 +2,8 @@ import { createGlobalStyle } from 'styled-components'
 
 export const colors = {
   primary: '#E66767',
-  secondary: '#FFEBD9'
+  secondary: '#FFEBD9',
+  back: '#fff8f2'
 }
 
 export const GlobalCss = createGlobalStyle`
@@ -15,6 +16,9 @@ export const GlobalCss = createGlobalStyle`
     color: ${colors.primary}
   }
 
+  body {
+    background-color: ${colors.back};
+  }
 
   .container {
     max-width: 1024px;
