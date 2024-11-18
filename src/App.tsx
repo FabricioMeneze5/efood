@@ -1,12 +1,14 @@
+import { BrowserRouter } from 'react-router-dom'
+import Root from './routes'
+
 import { GlobalCss } from './styles'
+
 function App() {
   return (
-    <>
+    <BrowserRouter>
       <GlobalCss />
-      <div className="container">
-        <h1>efood</h1>
-      </div>
-    </>
+      <Root />
+    </BrowserRouter>
   )
 }
 

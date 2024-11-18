@@ -1,7 +1,8 @@
 import { createGlobalStyle } from 'styled-components'
 
 export const colors = {
-  orange: '#E66767'
+  primary: '#E66767',
+  secondary: '#FFEBD9'
 }
 
 export const GlobalCss = createGlobalStyle`
@@ -11,7 +12,7 @@ export const GlobalCss = createGlobalStyle`
     box-sizing: border-box;
     font-family: "Roboto", serif;
     list-style: none;
-    color: ${colors.orange}
+    color: ${colors.primary}
   }
 
 
