@@ -1,5 +1,7 @@
 import * as S from './styles'
 
+import Tag from '../Tag'
+
 import esfiha from '../../assets/images/image 3.png'
 import star from '../../assets/images/estrela.png'
 
@@ -7,8 +9,8 @@ const Card1 = () => {
   return (
     <S.Card>
       <img src={esfiha} alt="produto" />
-      <S.Tag>Destaque da semana</S.Tag>
-      <S.Tag>Japonesa</S.Tag>
+      <Tag>Destaque da semana</Tag>
+      <Tag>Japonesa</Tag>
       <S.CTitle>
         <h3>Hioki Sushi</h3>
         <div>
