@@ -4,6 +4,7 @@ import Tag from '../Tag'
 
 import esfiha from '../../assets/images/image 3.png'
 import star from '../../assets/images/estrela.png'
+import Button from '../Button'
 
 const Card1 = () => {
   return (
@@ -24,7 +25,9 @@ const Card1 = () => {
         rápida, embalagens cuidadosas e qualidade garantida.Experimente o Japão
         sem sair do lar com nosso delivery!
       </p>
-      <button type="button">Saiba mais</button>
+      <Button title="pizzaria" to="/page">
+        Saber mais
+      </Button>
     </S.Card>
   )
 }
