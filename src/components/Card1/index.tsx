@@ -13,7 +13,7 @@ type Props = {
   description: string
 }
 
-const Card1 = ({ infos, image, title, rate, description }: Props) => {
+const Card1 = ({ description, image, infos, rate, title }: Props) => {
   return (
     <S.Card>
       <S.Infos>
