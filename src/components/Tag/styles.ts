@@ -8,4 +8,5 @@ export const TagContainer = styled.div`
   font-size: 12px;
   font-weight: bold;
   padding: 6px 10px;
+  margin-left: 8px;
 `

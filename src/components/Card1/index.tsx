@@ -9,8 +9,10 @@ import Button from '../Button'
 const Card1 = () => {
   return (
     <S.Card>
-      <Tag>Destaque da semana</Tag>
-      <Tag>Japonesa</Tag>
+      <S.Infos>
+        <Tag>Destaque da semana</Tag>
+        <Tag>Japonesa</Tag>
+      </S.Infos>
       <img src={esfiha} alt="produto" />
       <S.CardContainer>
         <S.CTitle>

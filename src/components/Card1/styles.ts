@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 
 import { colors } from '../../styles'
-import { TagContainer } from '../Tag/styles'
 
 export const Card = styled.div`
   border: solid 1px ${colors.primary};
@@ -13,12 +12,11 @@ export const Card = styled.div`
     height: 217px;
     object-fit: cover;
   }
-
-  ${TagContainer} {
-    position: absolute;
-    top: 16px;
-    right: 16px;
-  }
+`
+export const Infos = styled.div`
+  position: absolute;
+  top: 16px;
+  right: 16px;
 `
 
 export const CardContainer = styled.div`
