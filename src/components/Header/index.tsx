@@ -9,7 +9,7 @@ const Header = () => {
       <H.Container className="container">
         <H.Title>
           <h1>
-            <img src={logo} alt="efood logo" />
+            <img src={logo} alt="efood" />
           </h1>
         </H.Title>
         <p>

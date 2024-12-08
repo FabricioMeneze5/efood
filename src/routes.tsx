@@ -2,7 +2,7 @@ import { Routes, Route } from 'react-router-dom'
 
 import Home from './pages/Home'
 
-import comida from './assets/images/image 3.png'
+import comida from './assets/images/imagem.png'
 import Restaurant from './model/Restaurant'
 
 const restaurantsArray: Restaurant[] = [
