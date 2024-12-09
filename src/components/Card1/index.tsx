@@ -31,7 +31,7 @@ const Card1 = ({ description, image, infos, rate, title }: Props) => {
           </div>
         </S.CTitle>
         <p>{description}</p>
-        <Button title="pizzaria" to="/page">
+        <Button title="pizzaria" to="/profile">
           Saber mais
         </Button>
       </S.CardContainer>

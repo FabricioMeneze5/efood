@@ -2,6 +2,7 @@ import { HomeGrid } from './styles'
 
 import Restaurant from '../../model/Restaurant'
 import Card1 from '../../components/Card1'
+import Header from '../../components/Header'
 
 type Props = {
   restaurants: Restaurant[]
@@ -9,18 +10,21 @@ type Props = {
 
 const Home = ({ restaurants }: Props) => {
   return (
-    <HomeGrid>
-      {restaurants.map((restaurant) => (
-        <Card1
-          infos={restaurant.infos}
-          image={restaurant.image}
-          title={restaurant.title}
-          rate={restaurant.rate}
-          description={restaurant.description}
-          key={restaurant.id}
-        />
-      ))}
-    </HomeGrid>
+    <>
+      <Header isInHome={true} />
+      <HomeGrid className="container">
+        {restaurants.map((restaurant) => (
+          <Card1
+            infos={restaurant.infos}
+            image={restaurant.image}
+            title={restaurant.title}
+            rate={restaurant.rate}
+            description={restaurant.description}
+            key={restaurant.id}
+          />
+        ))}
+      </HomeGrid>
+    </>
   )
 }
 export default Home
