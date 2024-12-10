@@ -1,6 +1,7 @@
 import { Routes, Route } from 'react-router-dom'
 
 import Home from './pages/Home'
+import Profile from './pages/Profile'
 
 import comida from './assets/images/imagem.png'
 import Restaurant from './model/Restaurant'
@@ -47,6 +48,10 @@ const restaurantsArray: Restaurant[] = [
 const Root = () => (
   <Routes>
     <Route path="/" element={<Home restaurants={restaurantsArray} />} />
+    <Route
+      path="/profile"
+      element={<Profile restaurants={restaurantsArray} />}
+    />
   </Routes>
 )
 

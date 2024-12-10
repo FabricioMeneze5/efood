@@ -1,8 +1,7 @@
-import { HomeGrid } from './styles'
-
 import Restaurant from '../../model/Restaurant'
 import Card1 from '../../components/Card1'
 import Header from '../../components/Header'
+import CartList from '../../components/CartList'
 
 type Props = {
   restaurants: Restaurant[]
@@ -12,7 +11,7 @@ const Home = ({ restaurants }: Props) => {
   return (
     <>
       <Header isInHome={true} />
-      <HomeGrid className="container">
+      <CartList columns={2}>
         {restaurants.map((restaurant) => (
           <Card1
             infos={restaurant.infos}
@@ -23,7 +22,7 @@ const Home = ({ restaurants }: Props) => {
             key={restaurant.id}
           />
         ))}
-      </HomeGrid>
+      </CartList>
     </>
   )
 }

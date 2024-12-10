@@ -3,7 +3,6 @@ import styled from 'styled-components'
 export const Background = styled.div`
   display: block;
   padding: 64px 0;
-  margin-bottom: 138px;
 `
 export const Container = styled.div`
   display: flex;
