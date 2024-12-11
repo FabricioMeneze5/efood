@@ -14,3 +14,16 @@ export const ButtonLink = styled(Link)`
   border: none;
   cursor: pointer;
 `
+
+export const ButtonContainer = styled.button`
+  display: inline-block;
+  background-color: ${colors.secondary};
+  color: ${colors.primary};
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
+  padding: 4px 6px;
+  width: 100%;
+  border: none;
+  cursor: pointer;
+`
