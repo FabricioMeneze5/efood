@@ -48,10 +48,7 @@ const restaurantsArray: Restaurant[] = [
 const Root = () => (
   <Routes>
     <Route path="/" element={<Home restaurants={restaurantsArray} />} />
-    <Route
-      path="/profile"
-      element={<Profile restaurants={restaurantsArray} />}
-    />
+    <Route path="/profile" element={<Profile />} />
   </Routes>
 )
 

@@ -1,15 +1,10 @@
 import Background from '../../assets/images/restaurante 2.png'
-import Card1 from '../../components/Card1'
+import Card2 from '../../components/Card2'
 import CartList from '../../components/CartList'
 import Header from '../../components/Header'
-import Restaurant from '../../model/Restaurant'
 import { Banner } from './styles'
 
-type Props = {
-  restaurants: Restaurant[]
-}
-
-const Profile = ({ restaurants }: Props) => {
+const Profile = () => {
   return (
     <>
       <Header isInHome={false} />
@@ -20,16 +15,13 @@ const Profile = ({ restaurants }: Props) => {
         </div>
       </Banner>
       <CartList columns={3}>
-        {restaurants.map((restaurant) => (
-          <Card1
-            infos={restaurant.infos}
-            image={restaurant.image}
-            title={restaurant.title}
-            rate={restaurant.rate}
-            description={restaurant.description}
-            key={restaurant.id}
-          />
-        ))}
+        <Card2 />
+        <Card2 />
+        <Card2 />
+        <Card2 />
+        <Card2 />
+        <Card2 />
+        <Card2 />
       </CartList>
     </>
   )
