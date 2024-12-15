@@ -26,17 +26,18 @@ export const Banner = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    font-size: 32px;
     line-height: 37.5px;
     color: ${colors.white};
     position: relative;
 
     p {
+      font-size: 32px;
       font-weight: 100;
     }
 
     h2 {
-      font-weight: 900;
+      font-size: 32px;
+      font-weight: bold;
     }
   }
 `

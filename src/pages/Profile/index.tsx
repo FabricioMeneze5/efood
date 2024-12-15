@@ -22,6 +22,8 @@ const Profile = () => {
       <CartList columns={3}>
         <Card2 />
         <Card2 />
+        <Card2 />
+        <Card2 />
       </CartList>
       <Modal />
     </>
