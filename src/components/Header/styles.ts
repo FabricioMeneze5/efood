@@ -1,8 +1,10 @@
 import styled from 'styled-components'
+import { colors } from '../../styles'
 
 export const Background = styled.div`
   display: block;
   padding: 64px 0;
+  color: ${colors.primary};
 `
 export const Container = styled.div`
   display: flex;

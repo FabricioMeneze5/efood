@@ -6,6 +6,7 @@ export const Card = styled.div`
   border: solid 1px ${colors.primary};
   position: relative;
   background-color: #fff;
+  color: ${colors.primary};
 
   > img {
     width: 100%;

@@ -3,7 +3,7 @@ import { createGlobalStyle } from 'styled-components'
 export const colors = {
   primary: '#E66767',
   secondary: '#FFEBD9',
-  back: '#fff8f2'
+  white: '#fff8f2'
 }
 
 export const GlobalCss = createGlobalStyle`
@@ -13,11 +13,10 @@ export const GlobalCss = createGlobalStyle`
     box-sizing: border-box;
     font-family: "Roboto", serif;
     list-style: none;
-    color: ${colors.primary}
   }
 
   body {
-    background-color: ${colors.back};
+    background-color: ${colors.white};
   }
 
   .container {

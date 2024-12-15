@@ -23,7 +23,6 @@ export const ButtonContainer = styled.button`
   font-weight: bold;
   text-align: center;
   padding: 4px 6px;
-  width: 100%;
   border: none;
   cursor: pointer;
 `

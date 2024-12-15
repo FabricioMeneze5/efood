@@ -6,6 +6,7 @@ export const FooterContainer = styled.div`
   padding: 40px 0;
   margin-top: 120px;
   text-align: center;
+  color: ${colors.primary};
 
   p {
     display: inline-block;
