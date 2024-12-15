@@ -7,13 +7,13 @@ type Props = {
   onClick?: () => void
 }
 
-const Button = ({ children, to, type }: Props) => {
+const Button = ({ children, to, type, onClick }: Props) => {
   return (
     <>
       {type === 'link' ? (
         <ButtonLink to={to as string}>{children}</ButtonLink>
       ) : (
-        <ButtonContainer>{children}</ButtonContainer>
+        <ButtonContainer onClick={onClick}>{children}</ButtonContainer>
       )}
     </>
   )

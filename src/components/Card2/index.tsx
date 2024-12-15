@@ -3,7 +3,11 @@ import { Card } from './styles'
 
 import esfirra from '../../assets/images/image 3.png'
 
-const Card2 = () => {
+type Props = {
+  onclick?: () => void
+}
+
+const Card2 = ({ onclick }: Props) => {
   return (
     <>
       <Card>
@@ -13,7 +17,7 @@ const Card2 = () => {
           A clássica Marguerita: molho de tomate suculento, mussarela derretida,
           manjericão fresco e um toque de azeite. Sabor e simplicidade!
         </p>
-        <Button to="" type="button">
+        <Button type="button" onClick={onclick}>
           Adicionar ao carrinho
         </Button>
       </Card>
