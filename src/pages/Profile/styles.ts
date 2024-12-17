@@ -51,11 +51,19 @@ export const Modal = styled.div`
   display: none;
   justify-content: center;
   align-items: center;
-  background-color: rgba(0, 0, 0, 0.8);
   z-index: 1;
 
   &.visible {
     display: flex;
+  }
+
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
   }
 `
 export const ContainerModal = styled.div`
@@ -64,6 +72,7 @@ export const ContainerModal = styled.div`
   background-color: ${colors.primary};
   color: ${colors.white};
   position: relative;
+  z-index: 1;
 
   .close {
     cursor: pointer;

@@ -27,10 +27,8 @@ const Profile = () => {
       <CartList columns={3}>
         <Card2 onclick={() => setModalIsOpen(true)} />
       </CartList>
-      <S.Modal
-        className={modalIsOpen ? 'visible' : ''}
-        onClick={() => setModalIsOpen(false)}
-      >
+
+      <S.Modal className={modalIsOpen ? 'visible' : ''}>
         <S.ContainerModal className="container">
           <S.ImgModal src={esfirra} alt="title" />
           <S.ContentModal>
@@ -59,6 +57,7 @@ const Profile = () => {
             <Button type="button">Adicionar ao carrinho - R$ 60,90</Button>
           </S.ContentModal>
         </S.ContainerModal>
+        <div className="overlay" onClick={() => setModalIsOpen(false)}></div>
       </S.Modal>
     </>
   )
