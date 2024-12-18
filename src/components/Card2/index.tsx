@@ -1,22 +1,21 @@
 import Button from '../Button'
 import { Card } from './styles'
 
-import esfirra from '../../assets/images/image 3.png'
-
 type Props = {
+  id: number
+  img: string
+  title: string
+  description: string
   onclick?: () => void
 }
 
-const Card2 = ({ onclick }: Props) => {
+const Card2 = ({ id, img, title, description, onclick }: Props) => {
   return (
     <>
-      <Card>
-        <img src={esfirra} alt="title" />
-        <h3>Pizza Marguerita</h3>
-        <p>
-          A clássica Marguerita: molho de tomate suculento, mussarela derretida,
-          manjericão fresco e um toque de azeite. Sabor e simplicidade!
-        </p>
+      <Card key={id}>
+        <img src={img} alt={title} />
+        <h3>{title}</h3>
+        <p>{description}</p>
         <Button type="button" onClick={onclick}>
           Adicionar ao carrinho
         </Button>

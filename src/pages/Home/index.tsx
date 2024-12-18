@@ -1,7 +1,7 @@
 import Restaurant from '../../model/Restaurant'
 import Card1 from '../../components/Card1'
 import Header from '../../components/Header'
-import CartList from '../../components/CartList'
+import CartList from '../../components/BodyContent'
 
 type Props = {
   restaurants: Restaurant[]
@@ -14,8 +14,9 @@ const Home = ({ restaurants }: Props) => {
       <CartList columns={2}>
         {restaurants.map((restaurant) => (
           <Card1
-            infos={restaurant.infos}
-            image={restaurant.image}
+            id={restaurant.id}
+            infos={restaurant.type}
+            image={restaurant.cover}
             title={restaurant.title}
             rate={restaurant.rate}
             description={restaurant.description}

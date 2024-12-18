@@ -3,17 +3,23 @@ import { useState } from 'react'
 
 import * as S from './styles'
 import Card2 from '../../components/Card2'
-import CartList from '../../components/CartList'
+import CartList from '../../components/BodyContent'
 import Header from '../../components/Header'
 import Button from '../../components/Button'
+import Restaurant from '../../model/Restaurant'
 
 import Background from '../../assets/images/restaurante 2.png'
-import esfirra from '../../assets/images/image 3.png'
 import close from '../../assets/images/close 1.png'
 
-const Profile = () => {
+type Props = {
+  restaurants: Restaurant[]
+}
+
+const Profile = ({ restaurants }: Props) => {
   const { id } = useParams()
+  // const [menu, setMenu] = useState<Restaurant[]>([])
   const [modalIsOpen, setModalIsOpen] = useState(false)
+  const [modalUrl, setModalUrl] = useState('')
 
   return (
     <>
@@ -21,16 +27,28 @@ const Profile = () => {
       <S.Banner style={{ backgroundImage: `url('${Background}')` }}>
         <div className="container">
           <p>Italiana</p>
-          <h2>La Dolce Vita Trattoria {id}</h2>
+          <h2>asasasasasa{id}</h2>
         </div>
       </S.Banner>
       <CartList columns={3}>
-        <Card2 onclick={() => setModalIsOpen(true)} />
+        {restaurants.map((restaurant) => (
+          <Card2
+            key={restaurant.id}
+            id={restaurant.id}
+            img={restaurant.cover}
+            title={restaurant.title}
+            description={restaurant.description}
+            onclick={() => {
+              setModalIsOpen(true)
+              setModalUrl(restaurant.cover)
+            }}
+          />
+        ))}
       </CartList>
 
       <S.Modal className={modalIsOpen ? 'visible' : ''}>
         <S.ContainerModal className="container">
-          <S.ImgModal src={esfirra} alt="title" />
+          <S.ImgModal src={modalUrl} alt="title" />
           <S.ContentModal>
             <img
               src={close}

@@ -6,10 +6,11 @@ import star from '../../assets/images/estrela.png'
 import Button from '../Button'
 
 type Props = {
-  infos: string[]
+  id: number
+  infos: string
   image: string
   title: string
-  rate: string
+  rate: number
   description: string
 }
 
@@ -17,9 +18,7 @@ const Card1 = ({ description, image, infos, rate, title }: Props) => {
   return (
     <S.Card>
       <S.Infos>
-        {infos.map((info) => (
-          <Tag key={info}>{info}</Tag>
-        ))}
+        <Tag>{infos}</Tag>
       </S.Infos>
       <img src={image} alt={title} />
       <S.CardContainer>

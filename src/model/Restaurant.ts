@@ -1,25 +1,45 @@
 class Restaurant {
-  infos: string[]
-  image: string
-  title: string
-  rate: string
-  description: string
   id: number
+  title: string
+  highlighted: boolean
+  type: string
+  rate: number
+  description: string
+  cover: string
+  menu: {
+    picture: string
+    price: number
+    id: number
+    name: string
+    description: string
+    portion: string
+  }[]
 
   constructor(
-    infos: string[],
-    image: string,
+    id: number,
     title: string,
-    rate: string,
+    highlighted: boolean,
+    type: string,
+    rate: number,
     description: string,
-    id: number
+    cover: string,
+    menu: {
+      picture: string
+      price: number
+      id: number
+      name: string
+      description: string
+      portion: string
+    }[]
   ) {
-    this.infos = infos
-    this.image = image
+    this.id = id
     this.title = title
+    this.highlighted = highlighted
+    this.type = type
     this.rate = rate
     this.description = description
-    this.id = id
+    this.cover = cover
+    this.menu = menu
   }
 }
 
