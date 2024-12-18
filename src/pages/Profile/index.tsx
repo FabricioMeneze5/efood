@@ -27,7 +27,7 @@ const Profile = ({ restaurants }: Props) => {
       <S.Banner style={{ backgroundImage: `url('${Background}')` }}>
         <div className="container">
           <p>Italiana</p>
-          <h2>asasasasasa{id}</h2>
+          <h2>La Dolce Vita Trattoria{id}</h2>
         </div>
       </S.Banner>
       <CartList columns={3}>
@@ -35,12 +35,12 @@ const Profile = ({ restaurants }: Props) => {
           <Card2
             key={restaurant.id}
             id={restaurant.id}
-            img={restaurant.cover}
-            title={restaurant.title}
-            description={restaurant.description}
+            img={restaurant.capa}
+            title={restaurant.titulo}
+            description={restaurant.descricao}
             onclick={() => {
               setModalIsOpen(true)
-              setModalUrl(restaurant.cover)
+              setModalUrl(restaurant.capa)
             }}
           />
         ))}

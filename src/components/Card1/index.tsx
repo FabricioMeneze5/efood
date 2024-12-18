@@ -7,18 +7,28 @@ import Button from '../Button'
 
 type Props = {
   id: number
-  infos: string
+  type: string
   image: string
   title: string
   rate: number
   description: string
+  highlighted: boolean
 }
 
-const Card1 = ({ description, image, infos, rate, title }: Props) => {
+const Card1 = ({
+  id,
+  description,
+  image,
+  type,
+  rate,
+  title,
+  highlighted
+}: Props) => {
   return (
-    <S.Card>
+    <S.Card key={id}>
       <S.Infos>
-        <Tag>{infos}</Tag>
+        {highlighted === true ? <Tag>Destaque da semana</Tag> : ''}
+        <Tag>{type}</Tag>
       </S.Infos>
       <img src={image} alt={title} />
       <S.CardContainer>
