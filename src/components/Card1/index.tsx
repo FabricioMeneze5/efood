@@ -25,26 +25,28 @@ const Card1 = ({
   highlighted
 }: Props) => {
   return (
-    <S.Card key={id}>
-      <S.Infos>
-        {highlighted === true ? <Tag>Destaque da semana</Tag> : ''}
-        <Tag>{type}</Tag>
-      </S.Infos>
-      <img src={image} alt={title} />
-      <S.CardContainer>
-        <S.CTitle>
-          <h3>{title}</h3>
-          <div>
-            <span>{rate}</span>
-            <img src={star} alt="star" />
-          </div>
-        </S.CTitle>
-        <p>{description}</p>
-        <Button type="link" to="/profile">
-          Saber mais
-        </Button>
-      </S.CardContainer>
-    </S.Card>
+    <li key={id}>
+      <S.Card>
+        <S.Infos>
+          {highlighted === true ? <Tag>Destaque da semana</Tag> : ''}
+          <Tag>{type}</Tag>
+        </S.Infos>
+        <img src={image} alt={title} />
+        <S.CardContainer>
+          <S.CTitle>
+            <h3>{title}</h3>
+            <div>
+              <span>{rate}</span>
+              <img src={star} alt="star" />
+            </div>
+          </S.CTitle>
+          <p>{description}</p>
+          <Button type="link" to={`/profile/${id}`}>
+            Saber mais
+          </Button>
+        </S.CardContainer>
+      </S.Card>
+    </li>
   )
 }
 
