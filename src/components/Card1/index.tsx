@@ -24,6 +24,14 @@ const Card1 = ({
   title,
   highlighted
 }: Props) => {
+  const getDescription = (description: string) => {
+    if (description.length > 275) {
+      return description.slice(0, 273) + '...'
+    }
+
+    return description
+  }
+
   return (
     <li key={id}>
       <S.Card>
@@ -40,7 +48,7 @@ const Card1 = ({
               <img src={star} alt="star" />
             </div>
           </S.CTitle>
-          <p>{description}</p>
+          <p>{getDescription(description)}</p>
           <Button type="link" to={`/profile/${id}`}>
             Saber mais
           </Button>

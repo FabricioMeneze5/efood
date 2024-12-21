@@ -10,11 +10,18 @@ type Props = {
 }
 
 const Card2 = ({ id, img, title, description, onclick }: Props) => {
+  const getDescription = (description: string) => {
+    if (description.length > 165) {
+      return description.slice(0, 163) + '...'
+    }
+
+    return description
+  }
   return (
     <Card key={id}>
       <img src={img} alt={title} />
       <h3>{title}</h3>
-      <p>{description}</p>
+      <p>{getDescription(description)}</p>
       <Button type="button" onClick={onclick}>
         Adicionar ao carrinho
       </Button>
