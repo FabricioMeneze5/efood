@@ -10,6 +10,13 @@ import { Restaurant, MenuItem } from '../../model/Restaurant'
 import close from '../../assets/images/close 1.png'
 import BodyContent from '../../components/BodyContent'
 
+const priceBRL = (price = 0) => {
+  return new Intl.NumberFormat('pt-BR', {
+    style: 'currency',
+    currency: 'BRL'
+  }).format(price)
+}
+
 const Profile = () => {
   const { id } = useParams()
   const [restaurant, setRestaurant] = useState<Restaurant | null>(null)
@@ -69,7 +76,7 @@ const Profile = () => {
               <span>{selectedItem?.porcao}</span>
             </p>
             <Button type="button">
-              {`Adicionar ao carrinho - ${selectedItem?.preco}`}
+              {`Adicionar ao carrinho - ${priceBRL(selectedItem?.preco)}`}
             </Button>
           </S.ContentModal>
         </S.ContainerModal>
