@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 
-import Restaurant from '../../model/Restaurant'
+import { Restaurant } from '../../model/Restaurant'
 
 import Card1 from '../../components/Card1'
 import Header from '../../components/Header'

@@ -5,29 +5,22 @@ import * as S from './styles'
 import Card2 from '../../components/Card2'
 import Header from '../../components/Header'
 import Button from '../../components/Button'
-import Restaurant from '../../model/Restaurant'
+import { Restaurant, MenuItem } from '../../model/Restaurant'
 
 import close from '../../assets/images/close 1.png'
 import BodyContent from '../../components/BodyContent'
 
 const Profile = () => {
   const { id } = useParams()
-  const [restaurant, setRestaurant] = useState<Restaurant>()
-  const [cardapio, setCardapio] = useState<Restaurant[]>([])
+  const [restaurant, setRestaurant] = useState<Restaurant | null>(null)
+  const [selectedItem, setSelectedItem] = useState<MenuItem | null>(null)
   const [modalIsOpen, setModalIsOpen] = useState(false)
-  const [modalUrl, setModalUrl] = useState('')
 
   useEffect(() => {
     fetch(`https://fake-api-tau.vercel.app/api/efood/restaurantes/${id}`)
       .then((res) => res.json())
       .then((res) => setRestaurant(res))
   }, [id])
-
-  useEffect(() => {
-    fetch('https://fake-api-tau.vercel.app/api/efood/restaurantes')
-      .then((res) => res.json())
-      .then((res) => setCardapio(res))
-  }, [])
 
   if (!restaurant) {
     return <h3>Carregando...</h3>
@@ -43,25 +36,24 @@ const Profile = () => {
         </div>
       </S.Banner>
       <BodyContent columns={3}>
-        {cardapio.map((res) => (
-          <li key={res.cardapio.id}>
-            <Card2
-              id={res.cardapio.id}
-              img={res.cardapio.foto}
-              title={res.cardapio.nome}
-              description={res.cardapio.descricao}
-              onclick={() => {
-                setModalIsOpen(true)
-                setModalUrl(res.cardapio.foto)
-              }}
-            />
-          </li>
+        {restaurant.cardapio.map((item) => (
+          <Card2
+            key={item.id}
+            id={item.id}
+            img={item.foto}
+            title={item.nome}
+            description={item.descricao}
+            onclick={() => {
+              setSelectedItem(item)
+              setModalIsOpen(true)
+            }}
+          />
         ))}
       </BodyContent>
 
       <S.Modal className={modalIsOpen ? 'visible' : ''}>
         <S.ContainerModal className="container">
-          <S.ImgModal src={modalUrl} alt="title" />
+          <S.ImgModal src={selectedItem?.foto} alt="title" />
           <S.ContentModal>
             <img
               src={close}
@@ -69,14 +61,16 @@ const Profile = () => {
               className="close"
               onClick={() => setModalIsOpen(false)}
             />
-            <h3>{restaurant.cardapio.nome}</h3>
+            <h3>{selectedItem?.nome}</h3>
             <p>
-              {restaurant.cardapio.descricao}
+              {selectedItem?.descricao}
               <br />
               <br />
-              <span>{restaurant.cardapio.porcao}</span>
+              <span>{selectedItem?.porcao}</span>
             </p>
-            <Button type="button">Adicionar ao carrinho - R$69.00</Button>
+            <Button type="button">
+              {`Adicionar ao carrinho - ${selectedItem?.preco}`}
+            </Button>
           </S.ContentModal>
         </S.ContainerModal>
         <div className="overlay" onClick={() => setModalIsOpen(false)}></div>
