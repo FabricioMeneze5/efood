@@ -1,9 +1,9 @@
 import * as S from './styles'
 
 import Tag from '../Tag'
+import Button from '../Button'
 
 import star from '../../assets/images/estrela.png'
-import Button from '../Button'
 
 type Props = {
   id: number

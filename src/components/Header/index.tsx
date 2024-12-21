@@ -1,8 +1,9 @@
+import { Link } from 'react-router-dom'
+
 import * as H from './styles'
 
 import vector from '../../assets/images/Vector.png'
 import logo from '../../assets/images/logo.png'
-import { Link } from 'react-router-dom'
 
 type Props = {
   isInHome: boolean
