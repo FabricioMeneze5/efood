@@ -30,8 +30,10 @@ export const TextsCart = styled.div`
   justify-content: space-between;
   position: absolute;
   width: 100%;
-`
-export const Text = styled.p`
   font-size: 18px;
   font-weight: bold;
+
+  p:nth-child(2) {
+    cursor: pointer;
+  }
 `

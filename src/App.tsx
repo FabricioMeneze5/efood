@@ -28,7 +28,7 @@ export default App
 //   - reducer com api OK
 
 // #carrinho
-//   - criar o carrinho
+//   - criar o carrinho OK
 //   - add itens ao carrinho
 //   - remove itens ao carrinho
 //   - somar os valores

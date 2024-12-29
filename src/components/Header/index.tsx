@@ -1,4 +1,7 @@
 import { Link } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
+
+import { open } from '../../store/reducers/cart'
 
 import * as H from './styles'
 
@@ -10,6 +13,12 @@ type Props = {
 }
 
 const Header = ({ isInHome }: Props) => {
+  const dispatch = useDispatch()
+
+  const openCart = () => {
+    dispatch(open())
+  }
+
   return (
     <H.Background style={{ backgroundImage: `url(${vector})` }}>
       <H.Container>
@@ -28,10 +37,10 @@ const Header = ({ isInHome }: Props) => {
         ) : (
           <>
             <H.TextsCart className="container">
-              <H.Text>Restaurantes</H.Text>
-              <H.Text>
+              <p>Restaurantes</p>
+              <p onClick={openCart}>
                 <span>0</span> produto(s) no carrinho
-              </H.Text>
+              </p>
             </H.TextsCart>
           </>
         )}
