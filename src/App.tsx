@@ -25,7 +25,7 @@ export default App
 // #redux
 //   - criar a Store OK
 //   - reducer state
-//   - reducer com api
+//   - reducer com api OK
 
 // #carrinho
 //   - criar o carrinho

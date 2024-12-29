@@ -11,6 +11,7 @@ import close from '../../assets/images/close 1.png'
 import BodyContent from '../../components/BodyContent'
 
 import { useGetFoodQuery } from '../../services/api'
+import Cart from '../../components/Cart'
 
 const priceBRL = (price = 0) => {
   return new Intl.NumberFormat('pt-BR', {
@@ -78,6 +79,7 @@ const Profile = () => {
         </S.ContainerModal>
         <div className="overlay" onClick={() => setModalIsOpen(false)}></div>
       </S.Modal>
+      <Cart />
     </>
   )
 }
