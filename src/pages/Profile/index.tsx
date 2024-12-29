@@ -1,14 +1,16 @@
 import { useParams } from 'react-router-dom'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 
 import * as S from './styles'
 import Card2 from '../../components/Card2'
 import Header from '../../components/Header'
 import Button from '../../components/Button'
-import { Restaurant, MenuItem } from '../../model/Restaurant'
+import { MenuItem } from '../../model/Restaurant'
 
 import close from '../../assets/images/close 1.png'
 import BodyContent from '../../components/BodyContent'
+
+import { useGetFoodQuery } from '../../services/api'
 
 const priceBRL = (price = 0) => {
   return new Intl.NumberFormat('pt-BR', {
@@ -19,18 +21,12 @@ const priceBRL = (price = 0) => {
 
 const Profile = () => {
   const { id } = useParams()
-  const [restaurant, setRestaurant] = useState<Restaurant | null>(null)
   const [selectedItem, setSelectedItem] = useState<MenuItem | null>(null)
   const [modalIsOpen, setModalIsOpen] = useState(false)
-
-  useEffect(() => {
-    fetch(`https://fake-api-tau.vercel.app/api/efood/restaurantes/${id}`)
-      .then((res) => res.json())
-      .then((res) => setRestaurant(res))
-  }, [id])
+  const { data: restaurant } = useGetFoodQuery(id!)
 
   if (!restaurant) {
-    return <h3>Carregando...</h3>
+    return <h4>Carregando...</h4>
   }
 
   return (
