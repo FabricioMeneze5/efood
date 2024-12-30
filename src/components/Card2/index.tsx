@@ -7,10 +7,18 @@ type Props = {
   img: string
   title: string
   description: string
-  onclick?: () => void
+  clickCard?: () => void
+  clickButton: () => void
 }
 
-const Card2 = ({ id, img, title, description, onclick }: Props) => {
+const Card2 = ({
+  id,
+  img,
+  title,
+  description,
+  clickCard,
+  clickButton
+}: Props) => {
   const getDescription = (description: string) => {
     if (description.length > 165) {
       return description.slice(0, 163) + '...'
@@ -20,10 +28,10 @@ const Card2 = ({ id, img, title, description, onclick }: Props) => {
   }
   return (
     <Card key={id}>
-      <img src={img} alt={title} />
+      <img src={img} alt={title} onClick={clickCard} />
       <h3>{title}</h3>
       <p>{getDescription(description)}</p>
-      <Button type="button" onClick={onclick}>
+      <Button type="button" clickButton={clickButton}>
         Adicionar ao carrinho
       </Button>
     </Card>

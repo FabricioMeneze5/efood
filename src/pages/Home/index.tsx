@@ -2,10 +2,10 @@ import Card1 from '../../components/Card1'
 import Header from '../../components/Header'
 import BodyContent from '../../components/BodyContent'
 
-import { useGetRestaurantQuery } from '../../services/api'
+import { useGetRestaurantsQuery } from '../../services/api'
 
 const Home = () => {
-  const { data: restaurants } = useGetRestaurantQuery()
+  const { data: restaurants } = useGetRestaurantsQuery()
 
   if (restaurants) {
     return (

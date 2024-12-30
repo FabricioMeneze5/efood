@@ -1,17 +1,19 @@
 import { useParams } from 'react-router-dom'
 import { useState } from 'react'
+import { useDispatch } from 'react-redux'
 
 import * as S from './styles'
 import Card2 from '../../components/Card2'
 import Header from '../../components/Header'
 import Button from '../../components/Button'
+import Cart from '../../components/Cart'
+
 import { MenuItem } from '../../model/Restaurant'
+import { add, open } from '../../store/reducers/cart'
+import { useGetRestaurantSelectedQuery } from '../../services/api'
 
 import close from '../../assets/images/close 1.png'
 import BodyContent from '../../components/BodyContent'
-
-import { useGetFoodQuery } from '../../services/api'
-import Cart from '../../components/Cart'
 
 const priceBRL = (price = 0) => {
   return new Intl.NumberFormat('pt-BR', {
@@ -24,11 +26,20 @@ const Profile = () => {
   const { id } = useParams()
   const [selectedItem, setSelectedItem] = useState<MenuItem | null>(null)
   const [modalIsOpen, setModalIsOpen] = useState(false)
-  const { data: restaurant } = useGetFoodQuery(id!)
+  const { data: restaurant } = useGetRestaurantSelectedQuery(id!)
+
+  const dispatch = useDispatch()
+
+  const addToCart = () => {
+    // dispatch(add(selectedItem!))
+    dispatch(open())
+  }
 
   if (!restaurant) {
     return <h4>Carregando...</h4>
   }
+
+  const cardapio = restaurant.cardapio
 
   return (
     <>
@@ -40,17 +51,18 @@ const Profile = () => {
         </div>
       </S.Banner>
       <BodyContent columns={3}>
-        {restaurant.cardapio.map((item) => (
+        {cardapio.map((item) => (
           <Card2
             key={item.id}
             id={item.id}
             img={item.foto}
             title={item.nome}
             description={item.descricao}
-            onclick={() => {
+            clickCard={() => {
               setSelectedItem(item)
               setModalIsOpen(true)
             }}
+            clickButton={addToCart}
           />
         ))}
       </BodyContent>

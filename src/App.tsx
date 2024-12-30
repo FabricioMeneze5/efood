@@ -29,6 +29,7 @@ export default App
 
 // #carrinho
 //   - criar o carrinho OK
+//   - abrir e fechar carrinho OK
 //   - add itens ao carrinho
 //   - remove itens ao carrinho
 //   - somar os valores
