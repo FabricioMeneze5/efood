@@ -24,15 +24,15 @@ export default App
 
 // #redux
 //   - criar a Store OK
-//   - reducer state
+//   - reducer state OK
 //   - reducer com api OK
 
 // #carrinho
 //   - criar o carrinho OK
 //   - abrir e fechar carrinho OK
-//   - add itens ao carrinho
-//   - remove itens ao carrinho
+//   - add itens ao carrinho OK
 //   - somar os valores
+//   - remove itens ao carrinho
 
 // #links-hash
 //   - footer com hash

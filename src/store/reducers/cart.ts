@@ -16,13 +16,13 @@ const cartSlice = createSlice({
   initialState,
   reducers: {
     add: (state, action: PayloadAction<MenuItem>) => {
-      state.items.push(action.payload)
-      // const food = state.items.find((item) => item.id === action.payload.id)
+      const food = state.items.find((item) => item.id === action.payload.id)
 
-      // if (!food) {
-      // } else {
-      //   alert('Prato já adicionado ao carrinho!')
-      // }
+      if (!food) {
+        state.items.push(action.payload)
+      } else {
+        alert('Prato já adicionado ao carrinho!')
+      }
     },
     open: (state) => {
       state.isOpen = true

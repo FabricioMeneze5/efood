@@ -5,13 +5,21 @@ import { RootReducer } from '../../store'
 import { close } from '../../store/reducers/cart'
 
 import { Overlay, CartContainer, SideBar, CartItem, TotalPrice } from './styled'
+import { priceBRL } from '../ProfileContent'
 
 const Cart = () => {
   const { isOpen, items } = useSelector((state: RootReducer) => state.cart)
+
   const dispatch = useDispatch()
 
   const closeCart = () => {
     dispatch(close())
+  }
+
+  const getTotalPrice = () => {
+    return items.reduce((total, currentValue) => {
+      return (total += currentValue.preco!)
+    }, 0)
   }
 
   return (
@@ -24,7 +32,7 @@ const Cart = () => {
               <img src={item.foto} alt={item.nome} />
               <div>
                 <h3>{item.nome}</h3>
-                <span>{item.preco}</span>
+                <span>{priceBRL(item.preco)}</span>
               </div>
               <button type="button" />
             </CartItem>
@@ -32,7 +40,7 @@ const Cart = () => {
         </ul>
         <TotalPrice>
           <p>Valor total</p>
-          <p>R$ 182,70</p>
+          <p>{priceBRL(getTotalPrice())}</p>
         </TotalPrice>
         <Button type="button">Continuar com a entrega</Button>
       </SideBar>

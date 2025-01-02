@@ -13,7 +13,6 @@ export const Card = styled.div`
     height: 167px;
     width: 100%;
     object-fit: cover;
-    cursor: pointer;
   }
 
   h3 {
