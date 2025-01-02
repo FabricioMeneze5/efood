@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 import { colors } from '../../styles'
 
-export const Card = styled.div`
+export const Card = styled.li`
   border: solid 1px ${colors.primary};
   position: relative;
   background-color: #fff;

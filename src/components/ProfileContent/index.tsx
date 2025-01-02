@@ -9,8 +9,6 @@ import Cart from '../../components/Cart'
 import { MenuItem } from '../../model/Restaurant'
 import { add, open } from '../../store/reducers/cart'
 
-import BodyContent from '../../components/BodyContent'
-
 interface ModalState extends MenuItem {
   isOpen: boolean
 }
@@ -59,7 +57,7 @@ const ProfileContent = ({ product }: Props) => {
 
   return (
     <>
-      <BodyContent columns={3}>
+      <S.CardList className="container">
         {product.map((item) => (
           <Card2
             key={item.id}
@@ -80,7 +78,7 @@ const ProfileContent = ({ product }: Props) => {
             }}
           />
         ))}
-      </BodyContent>
+      </S.CardList>
       <S.Modal className={isOpen ? 'visible' : ''} key={id}>
         <S.ContainerModal className="container">
           <S.ImgModal src={foto} alt={nome} />

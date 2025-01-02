@@ -1,6 +1,6 @@
 import Card1 from '../../components/Card1'
 import Header from '../../components/Header'
-import BodyContent from '../../components/BodyContent'
+import { ListContainer } from './styles'
 
 import { useGetRestaurantsQuery } from '../../services/api'
 
@@ -11,7 +11,7 @@ const Home = () => {
     return (
       <>
         <Header isInHome={true} />
-        <BodyContent columns={2}>
+        <ListContainer className="container">
           {restaurants.map((res) => (
             <Card1
               key={res.id}
@@ -24,7 +24,7 @@ const Home = () => {
               highlighted={res.destacado}
             />
           ))}
-        </BodyContent>
+        </ListContainer>
       </>
     )
   }

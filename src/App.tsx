@@ -21,18 +21,3 @@ function App() {
 }
 
 export default App
-
-// #redux
-//   - criar a Store OK
-//   - reducer state OK
-//   - reducer com api OK
-
-// #carrinho
-//   - criar o carrinho OK
-//   - abrir e fechar carrinho OK
-//   - add itens ao carrinho OK
-//   - somar os valores OK
-//   - remove itens ao carrinho OK
-
-// #links-hash
-//   - footer com hash

@@ -3,6 +3,13 @@ import { colors } from '../../styles'
 
 import close from '../../assets/images/close 1.png'
 
+export const CardList = styled.ul`
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 32px;
+  margin-top: 56px;
+`
+
 export const Modal = styled.div`
   position: fixed;
   top: 0;

@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { colors } from '../../styles'
 import { ButtonContainer } from '../Button/styles'
 
-export const Card = styled.div`
+export const Card = styled.li`
   max-width: 320px;
   padding: 8px;
   background-color: ${colors.primary};
