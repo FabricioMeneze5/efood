@@ -38,6 +38,12 @@ export const SideBar = styled.aside`
   z-index: 1;
   max-width: 360px;
   width: 100%;
+
+  p {
+    font-size: 14px;
+    font-weight: bold;
+    color: ${colors.secondary};
+  }
 `
 export const CartItem = styled.li`
   padding: 8px;
@@ -86,7 +92,4 @@ export const TotalPrice = styled.div`
   display: flex;
   justify-content: space-between;
   margin: 40px 0 16px;
-  font-size: 14px;
-  font-weight: bold;
-  color: ${colors.secondary};
 `

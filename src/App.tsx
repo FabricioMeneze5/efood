@@ -31,8 +31,8 @@ export default App
 //   - criar o carrinho OK
 //   - abrir e fechar carrinho OK
 //   - add itens ao carrinho OK
-//   - somar os valores
-//   - remove itens ao carrinho
+//   - somar os valores OK
+//   - remove itens ao carrinho OK
 
 // #links-hash
 //   - footer com hash
