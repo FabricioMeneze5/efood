@@ -1,6 +1,5 @@
 import styled from 'styled-components'
-
-import { colors } from '../../styles'
+import { breakpoints, colors } from '../../styles'
 
 export const Background = styled.div`
   display: block;
@@ -12,9 +11,9 @@ export const Container = styled.div`
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  position: relative;
 
   h1 {
-    position: relative;
     cursor: pointer;
     z-index: 1;
   }
@@ -24,6 +23,11 @@ export const Slogan = styled.p`
   font-weight: bold;
   text-align: center;
   margin-top: 138px;
+
+  @media (max-width: ${breakpoints.tablet}) {
+    font-size: 24px;
+    margin-top: 80px;
+  }
 `
 export const TextsCart = styled.div`
   display: flex;
@@ -32,8 +36,15 @@ export const TextsCart = styled.div`
   width: 100%;
   font-size: 18px;
   font-weight: bold;
+  cursor: pointer;
 
-  p:nth-child(2) {
-    cursor: pointer;
+  @media (max-width: ${breakpoints.tablet}) {
+    flex-direction: column;
+    align-items: center;
+    top: 60px;
+
+    p {
+      margin-top: 8px;
+    }
   }
 `

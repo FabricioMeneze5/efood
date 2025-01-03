@@ -1,9 +1,10 @@
 import styled from 'styled-components'
 
-import { colors } from '../../styles'
+import { breakpoints, colors } from '../../styles'
 import { ButtonContainer } from '../Button/styles'
 
 export const Card = styled.li`
+  width: 100%;
   max-width: 320px;
   padding: 8px;
   background-color: ${colors.primary};

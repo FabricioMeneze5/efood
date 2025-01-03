@@ -1,13 +1,22 @@
 import styled from 'styled-components'
-import { colors } from '../../styles'
+import { breakpoints, colors } from '../../styles'
 
 import close from '../../assets/images/close 1.png'
+import { ButtonContainer } from '../Button/styles'
 
 export const CardList = styled.ul`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 32px;
   margin-top: 56px;
+  justify-items: center;
+
+  @media (max-width: ${breakpoints.desktop}) {
+    grid-template-columns: 1fr 1fr;
+  }
+  @media (max-width: ${breakpoints.tablet}) {
+    grid-template-columns: 1fr;
+  }
 `
 
 export const Modal = styled.div`
@@ -53,11 +62,21 @@ export const ContainerModal = styled.div`
     background-color: transparent;
     cursor: pointer;
   }
+
+  @media (max-width: ${breakpoints.tablet}) {
+    padding: 32px 16px;
+    flex-direction: column;
+  }
 `
 export const ImgModal = styled.img`
   height: 280px;
   width: 280px;
   object-fit: cover;
+
+  @media (max-width: ${breakpoints.tablet}) {
+    width: 100%;
+    height: 140px;
+  }
 `
 
 export const ContentModal = styled.div`
@@ -75,5 +94,15 @@ export const ContentModal = styled.div`
     display: block;
     margin: 16px 0;
     font-size: 14px;
+  }
+
+  @media (max-width: ${breakpoints.tablet}) {
+    margin-top: 16px;
+    margin-left: 0;
+    width: 100%;
+
+    ${ButtonContainer} {
+      width: 100%;
+    }
   }
 `

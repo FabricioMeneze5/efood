@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { colors } from '../../styles'
+import { breakpoints, colors } from '../../styles'
 import trash from '../../assets/images/lixeira.png'
 import { ButtonContainer } from '../Button/styles'
 
@@ -33,16 +33,21 @@ export const CartContainer = styled.div`
 `
 
 export const SideBar = styled.aside`
-  background-color: ${colors.primary};
-  padding: 24px 8px 0;
+  padding: 24px 8px;
   z-index: 1;
   max-width: 360px;
   width: 100%;
+  background-color: ${colors.primary};
+  overflow-y: scroll;
 
   p {
     font-size: 14px;
     font-weight: bold;
     color: ${colors.secondary};
+  }
+
+  @media (max-width: ${breakpoints.tablet}) {
+    max-width: 300px;
   }
 `
 export const CartItem = styled.li`
