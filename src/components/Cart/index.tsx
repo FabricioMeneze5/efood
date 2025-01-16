@@ -5,7 +5,7 @@ import { RootReducer } from '../../store'
 import { close, remove } from '../../store/reducers/cart'
 
 import { Overlay, CartContainer, SideBar, CartItem, TotalPrice } from './styled'
-import { priceBRL } from '../ProfileContent'
+import { priceBRL } from '../../utils/index'
 
 const Cart = () => {
   const { isOpen, items } = useSelector((state: RootReducer) => state.cart)

@@ -6,7 +6,7 @@ import Card2 from '../../components/Card2'
 import Button from '../../components/Button'
 import Cart from '../../components/Cart'
 
-import { MenuItem } from '../../model/Restaurant'
+import { priceBRL } from '../../utils/index'
 import { add, open } from '../../store/reducers/cart'
 
 interface ModalState extends MenuItem {
@@ -15,13 +15,6 @@ interface ModalState extends MenuItem {
 
 type Props = {
   product: MenuItem[]
-}
-
-export const priceBRL = (price = 0) => {
-  return new Intl.NumberFormat('pt-BR', {
-    style: 'currency',
-    currency: 'BRL'
-  }).format(price)
 }
 
 const ProfileContent = ({ product }: Props) => {

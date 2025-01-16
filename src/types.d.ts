@@ -1,4 +1,4 @@
-export interface MenuItem {
+declare interface MenuItem {
   foto: string
   preco: number
   id: number
@@ -7,7 +7,7 @@ export interface MenuItem {
   porcao: string
 }
 
-export type Restaurant = {
+declare type Restaurant = {
   id: number
   titulo: string
   destacado: boolean
