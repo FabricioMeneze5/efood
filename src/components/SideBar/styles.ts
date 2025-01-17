@@ -40,10 +40,11 @@ export const SideBar = styled.aside`
   background-color: ${colors.primary};
   overflow-y: auto;
 
-  H3 {
+  h3 {
     font-size: 16px;
     font-weight: bold;
     color: ${colors.secondary};
+    margin-bottom: 16px;
   }
 
   p {
