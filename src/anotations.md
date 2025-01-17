@@ -1,11 +1,13 @@
 1) Crie a página de entrega do pedido;
   1.1 OK) atualizar models para Declare do TS
   1.2 OK) criar a pasta utils para as funções globais
+  1.2.1 OK) SideBar compponente
   1.3) dados pessoais
   1.4) dados pagamento
   1.5) indegrar com formik
   1.6) validar com yup
   1.7) corrigir exclamação
+  1.8) getTotalPrice para as funções globais
 
 2) Ao clicar em concluir, façar um POST para esta rota;
   2.1) fazer o POST

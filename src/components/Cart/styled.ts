@@ -1,55 +1,15 @@
 import styled from 'styled-components'
-import { breakpoints, colors } from '../../styles'
 import trash from '../../assets/images/lixeira.png'
-import { ButtonContainer } from '../Button/styles'
+import { colors } from '../../styles'
 
-export const Overlay = styled.div`
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: #000;
-  opacity: 0.8;
-`
-
-export const CartContainer = styled.div`
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+export const Container = styled.div`
   display: none;
-  justify-content: flex-end;
-  z-index: 1;
 
   &.is-open {
-    display: flex;
-  }
-
-  ${ButtonContainer} {
-    width: 100%;
+    display: block;
   }
 `
 
-export const SideBar = styled.aside`
-  padding: 24px 8px;
-  z-index: 1;
-  max-width: 360px;
-  width: 100%;
-  background-color: ${colors.primary};
-  overflow-y: scroll;
-
-  p {
-    font-size: 14px;
-    font-weight: bold;
-    color: ${colors.secondary};
-  }
-
-  @media (max-width: ${breakpoints.tablet}) {
-    max-width: 300px;
-  }
-`
 export const CartItem = styled.li`
   padding: 8px;
   height: 100px;

@@ -4,10 +4,10 @@ import { useDispatch } from 'react-redux'
 import * as S from './styles'
 import Card2 from '../../components/Card2'
 import Button from '../../components/Button'
-import Cart from '../../components/Cart'
 
 import { priceBRL } from '../../utils/index'
 import { add, open } from '../../store/reducers/cart'
+import SideBar from '../SideBar'
 
 interface ModalState extends MenuItem {
   isOpen: boolean
@@ -96,7 +96,7 @@ const ProfileContent = ({ product }: Props) => {
         </S.ContainerModal>
         <div className="overlay" onClick={closeModal}></div>
       </S.Modal>
-      <Cart />
+      <SideBar />
     </>
   )
 }

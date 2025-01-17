@@ -1,20 +1,20 @@
 import { useDispatch, useSelector } from 'react-redux'
 
-import Button from '../Button'
 import { RootReducer } from '../../store'
-import { close, remove } from '../../store/reducers/cart'
+import { remove } from '../../store/reducers/cart'
 
-import { Overlay, CartContainer, SideBar, CartItem, TotalPrice } from './styled'
+import * as S from './styled'
 import { priceBRL } from '../../utils/index'
+import Button from '../Button'
 
-const Cart = () => {
-  const { isOpen, items } = useSelector((state: RootReducer) => state.cart)
+type Props = {
+  isOpen: boolean
+}
+
+const Cart = ({ isOpen }: Props) => {
+  const { items } = useSelector((state: RootReducer) => state.cart)
 
   const dispatch = useDispatch()
-
-  const closeCart = () => {
-    dispatch(close())
-  }
 
   const getTotalPrice = () => {
     return items.reduce((total, currentItem) => {
@@ -27,34 +27,31 @@ const Cart = () => {
   }
 
   return (
-    <CartContainer className={isOpen ? 'is-open' : ''}>
-      <Overlay onClick={closeCart} />
-      <SideBar>
-        {items.length ? (
-          <>
-            {items.map((item) => (
-              <CartItem key={item.id}>
-                <img src={item.foto} alt={item.nome} />
-                <div>
-                  <h3>{item.nome}</h3>
-                  <span>{priceBRL(item.preco)}</span>
-                </div>
-                <button type="button" onClick={() => removeItem(item.id)} />
-              </CartItem>
-            ))}
-          </>
-        ) : (
-          <>
-            <p>Não há itens no carrinho</p>
-          </>
-        )}
-        <TotalPrice>
-          <p>Valor total</p>
-          <p>{priceBRL(getTotalPrice())}</p>
-        </TotalPrice>
-        <Button type="button">Continuar com a entrega</Button>
-      </SideBar>
-    </CartContainer>
+    <S.Container className={isOpen ? 'is-open' : ''}>
+      {items.length ? (
+        <>
+          {items.map((item) => (
+            <S.CartItem key={item.id}>
+              <img src={item.foto} alt={item.nome} />
+              <div>
+                <h3>{item.nome}</h3>
+                <span>{priceBRL(item.preco)}</span>
+              </div>
+              <button type="button" onClick={() => removeItem(item.id)} />
+            </S.CartItem>
+          ))}
+        </>
+      ) : (
+        <>
+          <h3>Não há itens no carrinho</h3>
+        </>
+      )}
+      <S.TotalPrice>
+        <p>Valor total</p>
+        <p>{priceBRL(getTotalPrice())}</p>
+      </S.TotalPrice>
+      <Button type="button">Continuar com a entrega</Button>
+    </S.Container>
   )
 }
 
