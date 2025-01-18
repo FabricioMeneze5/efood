@@ -3,9 +3,10 @@ import { useDispatch, useSelector } from 'react-redux'
 import { RootReducer } from '../../store'
 import { remove } from '../../store/reducers/cart'
 
-import * as S from './styled'
-import { priceBRL } from '../../utils/index'
+import { priceBRL, getTotalPrice } from '../../utils/index'
 import Button from '../Button'
+
+import * as S from './styled'
 
 type Props = {
   isOpen: boolean
@@ -15,12 +16,6 @@ const Cart = ({ isOpen }: Props) => {
   const { items } = useSelector((state: RootReducer) => state.cart)
 
   const dispatch = useDispatch()
-
-  const getTotalPrice = () => {
-    return items.reduce((total, currentItem) => {
-      return (total += currentItem.preco!)
-    }, 0)
-  }
 
   const removeItem = (id: number) => {
     dispatch(remove(id))
@@ -48,7 +43,7 @@ const Cart = ({ isOpen }: Props) => {
       )}
       <S.TotalPrice>
         <p>Valor total</p>
-        <p>{priceBRL(getTotalPrice())}</p>
+        <p>{priceBRL(getTotalPrice(items))}</p>
       </S.TotalPrice>
       <Button type="button">Continuar com a entrega</Button>
     </S.Container>

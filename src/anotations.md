@@ -5,9 +5,10 @@
   1.3 OK) Tela dados pessoais
   1.4 OK) Tela dados pagamento
   1.5 OK) indegrar com formik
-  1.6) validar com yup
-  1.7) corrigir exclamação
-  1.8) getTotalPrice para as funções globais
+  1.6 OK) validar com yup
+  1.7 OK) corrigir exclamação
+  1.8 OK) getTotalPrice para as funções globais
+  1.9) InputMask
 
 2) Ao clicar em concluir, façar um POST para esta rota;
   2.1) fazer o POST

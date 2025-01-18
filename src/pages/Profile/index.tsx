@@ -6,9 +6,13 @@ import ProfileContent from '../../components/ProfileContent'
 
 import { useGetRestaurantSelectedQuery } from '../../services/api'
 
+type RestaurantId = {
+  id: string
+}
+
 const Profile = () => {
-  const { id } = useParams()
-  const { data: restaurant } = useGetRestaurantSelectedQuery(id!)
+  const { id } = useParams() as RestaurantId
+  const { data: restaurant } = useGetRestaurantSelectedQuery(id)
 
   if (!restaurant) {
     return <h4>Carregando...</h4>
