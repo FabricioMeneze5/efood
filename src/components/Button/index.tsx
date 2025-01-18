@@ -1,7 +1,7 @@
 import { ButtonLink, ButtonContainer } from './styles'
 
 type Props = {
-  type: 'button' | 'link'
+  type: 'button' | 'link' | 'submit'
   children: string
   to?: string
   clickButton?: () => void

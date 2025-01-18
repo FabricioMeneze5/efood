@@ -2,9 +2,9 @@
   1.1 OK) atualizar models para Declare do TS
   1.2 OK) criar a pasta utils para as funções globais
   1.2.1 OK) SideBar compponente
-  1.3) dados pessoais
-  1.4) dados pagamento
-  1.5) indegrar com formik
+  1.3 OK) Tela dados pessoais
+  1.4 OK) Tela dados pagamento
+  1.5 OK) indegrar com formik
   1.6) validar com yup
   1.7) corrigir exclamação
   1.8) getTotalPrice para as funções globais
@@ -16,7 +16,7 @@
   2.4) ter items no carrinho para ir ao pagamento
 
 3) Crie a tela de confirmação do pedido;
-  3.1) tela de conclusão
+  3.1 OK) tela de conclusão
   3.2) renderizar orderId
   3.3) limpar carrinho ao concluir pedido
   3.4) criar Loaders
