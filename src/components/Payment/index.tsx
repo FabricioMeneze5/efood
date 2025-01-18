@@ -1,6 +1,6 @@
 import Button from '../Button'
 
-import * as S from './styles'
+import * as S from '../Checkout/styles'
 
 type Props = {
   isOpen: boolean
