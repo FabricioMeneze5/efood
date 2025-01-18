@@ -1,5 +1,6 @@
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
+import InputMask from 'react-input-mask'
 
 import Button from '../Button'
 
@@ -89,7 +90,8 @@ const Checkout = ({ isOpen }: Props) => {
         <S.Row>
           <S.InputGroup maxWidth="155px">
             <label htmlFor="cep">CEP</label>
-            <input
+            <InputMask
+              mask="99999-999"
               id="cep"
               type="text"
               name="cep"

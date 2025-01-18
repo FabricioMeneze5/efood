@@ -21,9 +21,9 @@ const SideBar = () => {
     <S.Container className={isOpen ? 'is-open' : ''}>
       <S.Overlay onClick={closeCart} />
       <S.SideBar>
-        <Cart isOpen={true} />
+        <Cart isOpen={false} />
         <Checkout isOpen={false} />
-        <Payment isOpen={false} />
+        <Payment isOpen={true} />
         <ConfirmationScreen isOpen={false} />
       </S.SideBar>
     </S.Container>

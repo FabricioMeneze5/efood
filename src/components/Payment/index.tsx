@@ -1,5 +1,6 @@
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
+import InputMask from 'react-input-mask'
 
 import Button from '../Button'
 
@@ -51,7 +52,8 @@ const Payment = ({ isOpen }: Props) => {
         <S.Row>
           <S.InputGroup maxWidth="228px">
             <label htmlFor="cardNumber">Número do cartão</label>
-            <input
+            <InputMask
+              mask="9999 9999 9999 9999"
               id="cardNumber"
               type="text"
               name="cardNumber"
@@ -62,7 +64,8 @@ const Payment = ({ isOpen }: Props) => {
           </S.InputGroup>
           <S.InputGroup maxWidth="86px">
             <label htmlFor="cvv">CVV</label>
-            <input
+            <InputMask
+              mask="999"
               id="cvv"
               type="text"
               name="cvv"
@@ -75,7 +78,8 @@ const Payment = ({ isOpen }: Props) => {
         <S.Row>
           <S.InputGroup maxWidth="155px">
             <label htmlFor="expireMonth">Mês de vencimento</label>
-            <input
+            <InputMask
+              mask="99"
               id="expireMonth"
               type="text"
               name="expireMonth"
@@ -86,7 +90,8 @@ const Payment = ({ isOpen }: Props) => {
           </S.InputGroup>
           <S.InputGroup maxWidth="155px">
             <label htmlFor="expireYear">Ano de vencimento</label>
-            <input
+            <InputMask
+              mask="9999"
               id="expireYear"
               type="text"
               name="expireYear"
