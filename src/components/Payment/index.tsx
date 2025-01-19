@@ -23,15 +23,33 @@ const Payment = ({ isOpen }: Props) => {
       cardName: Yup.string()
         .min(5, 'Deve ter nome completo')
         .required('Campo obrigatório'),
-      cardNumber: Yup.string().required('Campo obrigatório'),
-      cvv: Yup.string().required('Campo obrigatório'),
-      expireMonth: Yup.string().required('Campo obrigatório'),
-      expireYear: Yup.string().required('Campo obrigatório')
+      cardNumber: Yup.string()
+        .min(20, 'Digite um numero de cartão valido')
+        .required('Campo obrigatório'),
+      cvv: Yup.string()
+        .min(3, 'Deve conter 3 numeros')
+        .required('Campo obrigatório'),
+      expireMonth: Yup.string()
+        .min(2, 'Digite um mes valido')
+        .max(12, 'Digite um mes valido')
+        .required('Campo obrigatório'),
+      expireYear: Yup.string()
+        .min(4, 'Deve conter 4 caracteres')
+        .required('Campo obrigatório')
     }),
     onSubmit: (values) => {
       console.log(values)
     }
   })
+
+  const getErrorMessage = (fildName: string, message?: string) => {
+    const isTouched = fildName in form.touched
+    const isError = fildName in form.errors
+
+    if (isTouched && isError) return message
+    return ''
+  }
+
   return (
     <S.Container className={isOpen ? 'is-open' : ''}>
       <h3>Pagamento - Valor a pagar R$ 190,90</h3>
@@ -47,6 +65,7 @@ const Payment = ({ isOpen }: Props) => {
               onChange={form.handleChange}
               onBlur={form.handleBlur}
             />
+            <small>{getErrorMessage('cardName', form.errors.cardName)}</small>
           </S.InputGroup>
         </S.Row>
         <S.Row>
@@ -61,6 +80,9 @@ const Payment = ({ isOpen }: Props) => {
               onChange={form.handleChange}
               onBlur={form.handleBlur}
             />
+            <small>
+              {getErrorMessage('cardNumber', form.errors.cardNumber)}
+            </small>
           </S.InputGroup>
           <S.InputGroup maxWidth="86px">
             <label htmlFor="cvv">CVV</label>
@@ -73,6 +95,7 @@ const Payment = ({ isOpen }: Props) => {
               onChange={form.handleChange}
               onBlur={form.handleBlur}
             />
+            <small>{getErrorMessage('cvv', form.errors.cvv)}</small>
           </S.InputGroup>
         </S.Row>
         <S.Row>
@@ -87,6 +110,9 @@ const Payment = ({ isOpen }: Props) => {
               onChange={form.handleChange}
               onBlur={form.handleBlur}
             />
+            <small>
+              {getErrorMessage('expireMonth', form.errors.expireMonth)}
+            </small>
           </S.InputGroup>
           <S.InputGroup maxWidth="155px">
             <label htmlFor="expireYear">Ano de vencimento</label>
@@ -99,6 +125,9 @@ const Payment = ({ isOpen }: Props) => {
               onChange={form.handleChange}
               onBlur={form.handleBlur}
             />
+            <small>
+              {getErrorMessage('expireYear', form.errors.expireYear)}
+            </small>
           </S.InputGroup>
         </S.Row>
         <Button type="submit">Finalizar pagamento</Button>

@@ -25,12 +25,14 @@ const Checkout = ({ isOpen }: Props) => {
         .min(5, 'Deve ter nome completo')
         .required('Campo obrigatório'),
       address: Yup.string()
-        .min(10, 'Minimo de 10 caracteres')
+        .min(10, 'Digite o endereço completo')
         .required('Campo obrigatório'),
       city: Yup.string()
         .min(5, 'Minimo de 5 caracteres')
         .required('Campo obrigatório'),
-      cep: Yup.string().required('Campo obrigatório'),
+      cep: Yup.string()
+        .min(9, 'Minimo de 8 caracteres')
+        .required('Campo obrigatório'),
       number: Yup.string().required('Campo obrigatório'),
       complement: Yup.string()
     }),
@@ -38,6 +40,14 @@ const Checkout = ({ isOpen }: Props) => {
       console.log(values)
     }
   })
+
+  const getErrorMessage = (fildName: string, message?: string) => {
+    const isTouched = fildName in form.touched
+    const isError = fildName in form.errors
+
+    if (isTouched && isError) return message
+    return ''
+  }
 
   return (
     <S.Container className={isOpen ? 'is-open' : ''}>
@@ -54,6 +64,7 @@ const Checkout = ({ isOpen }: Props) => {
               onChange={form.handleChange}
               onBlur={form.handleBlur}
             />
+            <small>{getErrorMessage('fullName', form.errors.fullName)}</small>
           </S.InputGroup>
         </S.Row>
         <S.Row>
@@ -67,6 +78,7 @@ const Checkout = ({ isOpen }: Props) => {
               onChange={form.handleChange}
               onBlur={form.handleBlur}
             />
+            <small>{getErrorMessage('address', form.errors.address)}</small>
           </S.InputGroup>
         </S.Row>
         <S.Row>
@@ -80,6 +92,7 @@ const Checkout = ({ isOpen }: Props) => {
               onChange={form.handleChange}
               onBlur={form.handleBlur}
             />
+            <small>{getErrorMessage('city', form.errors.city)}</small>
           </S.InputGroup>
         </S.Row>
         <S.Row>
@@ -94,10 +107,12 @@ const Checkout = ({ isOpen }: Props) => {
               onChange={form.handleChange}
               onBlur={form.handleBlur}
             />
+            <small>{getErrorMessage('cep', form.errors.cep)}</small>
           </S.InputGroup>
           <S.InputGroup maxWidth="155px">
             <label htmlFor="number">Número</label>
-            <input
+            <InputMask
+              mask="999999"
               id="number"
               type="text"
               name="number"
@@ -105,6 +120,7 @@ const Checkout = ({ isOpen }: Props) => {
               onChange={form.handleChange}
               onBlur={form.handleBlur}
             />
+            <small>{getErrorMessage('number', form.errors.number)}</small>
           </S.InputGroup>
         </S.Row>
         <S.Row>
@@ -118,6 +134,9 @@ const Checkout = ({ isOpen }: Props) => {
               onChange={form.handleChange}
               onBlur={form.handleBlur}
             />
+            <small>
+              {getErrorMessage('complement', form.errors.complement)}
+            </small>
           </S.InputGroup>
         </S.Row>
         <Button type="submit">Continuar com o pagamento</Button>

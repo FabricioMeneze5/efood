@@ -45,4 +45,12 @@ export const InputGroup = styled.div<InputGroupProps>`
     border: 1px solid transparent;
     padding: 8px;
   }
+
+  small {
+    display: block;
+    color: ${colors.white};
+    background-color: red;
+    width: 100%;
+    font-size: 10px;
+  }
 `
