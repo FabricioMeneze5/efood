@@ -30,13 +30,8 @@ const Checkout = ({ isOpen }: Props) => {
       city: Yup.string()
         .min(5, 'Minimo de 5 caracteres')
         .required('Campo obrigatório'),
-      cep: Yup.string()
-        .min(14, 'Minimo de 14 caracteres')
-        .required('Campo obrigatório'),
-      number: Yup.string()
-        .min(4, 'Minimo de 4 caracteres')
-        .max(6, 'Minimo de 6 caracteres')
-        .required('Campo obrigatório'),
+      cep: Yup.string().required('Campo obrigatório'),
+      number: Yup.string().required('Campo obrigatório'),
       complement: Yup.string()
     }),
     onSubmit: (values) => {
@@ -47,7 +42,7 @@ const Checkout = ({ isOpen }: Props) => {
   return (
     <S.Container className={isOpen ? 'is-open' : ''}>
       <h3>Entrega</h3>
-      <form>
+      <form onSubmit={form.handleSubmit}>
         <S.Row>
           <S.InputGroup>
             <label htmlFor="fullName">Quem irá receber</label>

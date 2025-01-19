@@ -58,7 +58,7 @@ const ProfileContent = ({ product }: Props) => {
             img={item.foto}
             title={item.nome}
             description={item.descricao}
-            clickButton={() => {
+            onClick={() => {
               setModal({
                 isOpen: true,
                 id: item.id,
@@ -86,7 +86,7 @@ const ProfileContent = ({ product }: Props) => {
             </p>
             <Button
               type="button"
-              clickButton={() =>
+              onClick={() =>
                 addToCart({ id, nome, foto, descricao, porcao, preco })
               }
             >

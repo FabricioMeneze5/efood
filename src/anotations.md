@@ -8,7 +8,7 @@
   1.6 OK) validar com yup
   1.7 OK) corrigir exclamação
   1.8 OK) getTotalPrice para as funções globais
-  1.9) InputMask
+  1.9 OK) InputMask
 
 2) Ao clicar em concluir, façar um POST para esta rota;
   2.1) fazer o POST

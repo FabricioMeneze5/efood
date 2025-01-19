@@ -35,7 +35,7 @@ const Payment = ({ isOpen }: Props) => {
   return (
     <S.Container className={isOpen ? 'is-open' : ''}>
       <h3>Pagamento - Valor a pagar R$ 190,90</h3>
-      <form>
+      <form onSubmit={form.handleSubmit}>
         <S.Row>
           <S.InputGroup>
             <label htmlFor="cardName">Nome no cartão</label>

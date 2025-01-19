@@ -7,10 +7,10 @@ type Props = {
   img: string
   title: string
   description: string
-  clickButton: () => void
+  onClick: () => void
 }
 
-const Card2 = ({ id, img, title, description, clickButton }: Props) => {
+const Card2 = ({ id, img, title, description, onClick }: Props) => {
   const getDescription = (description: string) => {
     if (description.length > 165) {
       return description.slice(0, 163) + '...'
@@ -23,7 +23,7 @@ const Card2 = ({ id, img, title, description, clickButton }: Props) => {
       <img src={img} alt={title} />
       <h3>{title}</h3>
       <p>{getDescription(description)}</p>
-      <Button type="button" clickButton={clickButton}>
+      <Button type="button" onClick={onClick}>
         Adicionar ao carrinho
       </Button>
     </Card>
