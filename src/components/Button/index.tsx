@@ -5,13 +5,14 @@ type Props = {
   children: string
   to?: string
   onClick?: () => void
+  disabled?: boolean
 }
 
-const Button = ({ children, to, type, onClick }: Props) => {
+const Button = ({ children, to, type, onClick, disabled }: Props) => {
   return (
     <>
       {type === 'button' || type === 'submit' ? (
-        <ButtonContainer type={type} onClick={onClick}>
+        <ButtonContainer disabled={disabled} type={type} onClick={onClick}>
           {children}
         </ButtonContainer>
       ) : (
