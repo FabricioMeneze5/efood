@@ -15,7 +15,8 @@
   2.2 OK) exibir erros na tela
   2.3 OK) ter items no carrinho para ir ao pagamento
   2.4 ) desabilitar botão caso o formulario esteja mal preenchido
-  2.5 ok) estado do sideBar
+  2.5 OK) estado do sideBar
+  2.6) string to number
 
 3) Crie a tela de confirmação do pedido;
   3.1 OK) tela de conclusão

@@ -1,5 +1,3 @@
-import Button from '../Button'
-
 import * as S from './styles'
 
 type Props = {
@@ -9,7 +7,7 @@ type Props = {
 const ConfirmationScreen = ({ isOpen }: Props) => {
   return (
     <S.Container className={isOpen ? 'is-open' : ''}>
-      <h3>Pedido realizado - #{'548548'}</h3>
+      <h3>Pedido realizado - #XXXXXX</h3>
       <p>
         Estamos felizes em informar que seu pedido já está em processo de
         preparação e, em breve, será entregue no endereço fornecido.

@@ -8,7 +8,7 @@ import { RootReducer } from '../../store'
 
 import Cart from '../Cart'
 import Checkout from '../Checkout'
-import Payment from '../Payment'
+// import Payment from '../Payment'
 import ConfirmationScreen from '../ConfirmationScreen'
 import Button from '../Button'
 
@@ -36,16 +36,8 @@ const SideBar = () => {
     return setCartState(true), setCheckoutState(false)
   }
 
-  const goToPayment = () => {
-    return setCheckoutState(false), setPaymentState(true)
-  }
-
-  const backToCheckout = () => {
-    return setCheckoutState(true), setPaymentState(false)
-  }
-
   const goToConfirmationScreen = () => {
-    return setPaymentState(false), setConfirmationScreenState(true)
+    return setCheckoutState(false), setConfirmationScreenState(true)
   }
 
   const finishPurchase = () => {
@@ -60,8 +52,8 @@ const SideBar = () => {
       <S.Overlay onClick={closeCart} />
       <S.SideBar>
         <Cart isOpen={cartState} />
-        <Checkout isOpen={checkoutState} />
-        <Payment isOpen={paymentState} />
+        <Checkout onClick={goToConfirmationScreen} isOpen={checkoutState} />
+        {/* <Payment isOpen={paymentState} /> */}
         <ConfirmationScreen isOpen={confirmationScreenState} />
         {cartState ? (
           <Button
@@ -73,9 +65,6 @@ const SideBar = () => {
           </Button>
         ) : checkoutState ? (
           <>
-            <Button onClick={goToPayment} type="button">
-              Continuar com o pagamento
-            </Button>
             <Button onClick={backToCart} type="button">
               Voltar para o carrinho
             </Button>
@@ -85,9 +74,9 @@ const SideBar = () => {
             <Button onClick={goToConfirmationScreen} type="button">
               Finalizar pagamento
             </Button>
-            <Button onClick={backToCheckout} type="button">
+            {/* <Button onClick={backToCheckout} type="button">
               Voltar para a edição de endereço
-            </Button>
+            </Button> */}
           </>
         ) : (
           <Button onClick={finishPurchase} type="button">
