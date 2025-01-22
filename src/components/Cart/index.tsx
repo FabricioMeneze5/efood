@@ -45,9 +45,6 @@ const Cart = ({ isOpen }: Props) => {
         <p>Valor total</p>
         <p>{priceBRL(getTotalPrice(items))}</p>
       </S.TotalPrice>
-      <Button disabled={items.length ? false : true} type="button">
-        Continuar com a entrega
-      </Button>
     </S.Container>
   )
 }

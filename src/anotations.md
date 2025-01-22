@@ -13,13 +13,14 @@
 2) Ao clicar em concluir, façar um POST para esta rota;
   2.1) fazer o POST
   2.2 OK) exibir erros na tela
-  2.3) ter items no carrinho para ir ao pagamento
-  2.4 OK) desabilitar botão caso o formulario esteja mal preenchido
+  2.3 OK) ter items no carrinho para ir ao pagamento
+  2.4 ) desabilitar botão caso o formulario esteja mal preenchido
+  2.5 ok) estado do sideBar
 
 3) Crie a tela de confirmação do pedido;
   3.1 OK) tela de conclusão
   3.2) renderizar orderId
-  3.3) limpar carrinho ao concluir pedido
+  3.3 OK) limpar carrinho ao concluir pedido
   3.4) criar Loaders
   3.5) npx eslint . para corrigir erros
   3.6) responsividade

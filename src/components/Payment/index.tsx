@@ -130,9 +130,10 @@ const Payment = ({ isOpen }: Props) => {
             </small>
           </S.InputGroup>
         </S.Row>
-        <Button type="submit">Finalizar pagamento</Button>
+        {/* <Button disabled={true} type="submit">
+          Finalizar pagamento
+        </Button> */}
       </form>
-      <Button type="button">Voltar para a edição de endereço</Button>
     </S.Container>
   )
 }

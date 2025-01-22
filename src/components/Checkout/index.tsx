@@ -139,9 +139,10 @@ const Checkout = ({ isOpen }: Props) => {
             </small>
           </S.InputGroup>
         </S.Row>
-        <Button type="submit">Continuar com o pagamento</Button>
+        {/* <Button disabled={true} type="submit">
+          Continuar com o pagamento
+        </Button> */}
       </form>
-      <Button type="button">Voltar para o carrinho</Button>
     </S.Container>
   )
 }

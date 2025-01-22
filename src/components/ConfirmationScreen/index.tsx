@@ -26,7 +26,6 @@ const ConfirmationScreen = ({ isOpen }: Props) => {
         Esperamos que desfrute de uma deliciosa e agradável experiência
         gastronômica. Bom apetite!
       </p>
-      <Button type="button">Concluir</Button>
     </S.Container>
   )
 }
