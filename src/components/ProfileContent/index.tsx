@@ -86,9 +86,10 @@ const ProfileContent = ({ product }: Props) => {
             </p>
             <Button
               type="button"
-              onClick={() =>
+              onClick={() => {
                 addToCart({ id, nome, foto, descricao, porcao, preco })
-              }
+                closeModal()
+              }}
             >
               {`Adicionar ao carrinho - ${priceBRL(preco)}`}
             </Button>

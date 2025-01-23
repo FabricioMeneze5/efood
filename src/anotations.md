@@ -11,7 +11,7 @@
   1.9 OK) InputMask
 
 2) Ao clicar em concluir, façar um POST para esta rota;
-  2.1) fazer o POST
+  2.1 OK) fazer o POST
   2.2 OK) exibir erros na tela
   2.3 OK) ter items no carrinho para ir ao pagamento
   2.4 ) desabilitar botão caso o formulario esteja mal preenchido
