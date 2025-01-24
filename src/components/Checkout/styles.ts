@@ -15,7 +15,7 @@ export const Container = styled.div`
     }
   }
 
-  &.is-open {
+  &.cont-open {
     display: block;
   }
 `
@@ -23,7 +23,7 @@ export const Container = styled.div`
 export const FormContainer = styled.div`
   display: none;
 
-  &.is-open {
+  &.form-open {
     display: block;
   }
 `

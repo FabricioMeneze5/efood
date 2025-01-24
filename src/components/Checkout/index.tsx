@@ -1,7 +1,7 @@
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
 import InputMask from 'react-input-mask'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 import { usePurchaseMutation } from '../../services/api'
 
@@ -13,14 +13,29 @@ type Props = {
   isOpen: boolean
   backToCart: () => void
   goToConfScreean: () => void
+  resetState: boolean
 }
 
-const Checkout = ({ isOpen, backToCart, goToConfScreean }: Props) => {
+const Checkout = ({
+  isOpen,
+  backToCart,
+  goToConfScreean,
+  resetState
+}: Props) => {
   const [showForm, setShowForm] = useState({
     delivery: true,
     payment: false
   })
   const [purchase, { data, isError, isLoading }] = usePurchaseMutation()
+
+  useEffect(() => {
+    if (resetState) {
+      setShowForm({
+        delivery: true,
+        payment: false
+      })
+    }
+  }, [resetState])
 
   const form = useFormik({
     initialValues: {
@@ -109,7 +124,7 @@ const Checkout = ({ isOpen, backToCart, goToConfScreean }: Props) => {
     return ''
   }
 
-  const changeForm = () => {
+  const swapForm = () => {
     setShowForm((prevState) => ({
       ...prevState,
       delivery: !prevState.delivery,
@@ -117,14 +132,10 @@ const Checkout = ({ isOpen, backToCart, goToConfScreean }: Props) => {
     }))
   }
 
-  const resetToDelivery = () => {
-    setShowForm({ delivery: true, payment: false })
-  }
-
   return (
     <form onSubmit={form.handleSubmit}>
-      <S.Container className={isOpen ? 'is-open' : ''}>
-        <S.FormContainer className={showForm.delivery ? 'is-open' : ''}>
+      <S.Container className={isOpen ? 'cont-open' : ''}>
+        <S.FormContainer className={showForm.delivery ? 'form-open' : ''}>
           <h3>Entrega</h3>
           <S.Row>
             <S.InputGroup>
@@ -211,14 +222,14 @@ const Checkout = ({ isOpen, backToCart, goToConfScreean }: Props) => {
               </small>
             </S.InputGroup>
           </S.Row>
-          <Button onClick={changeForm} disabled={false} type="button">
+          <Button onClick={swapForm} disabled={false} type="button">
             Continuar com o pagamento
           </Button>
           <Button onClick={backToCart} type="button">
             Voltar para o carrinho
           </Button>
         </S.FormContainer>
-        <S.FormContainer className={showForm.payment ? 'is-open' : ''}>
+        <S.FormContainer className={showForm.payment ? 'form-open' : ''}>
           <h3>Pagamento - Valor a pagar R$ 190,90</h3>
           <S.Row>
             <S.InputGroup>
@@ -297,13 +308,13 @@ const Checkout = ({ isOpen, backToCart, goToConfScreean }: Props) => {
             </S.InputGroup>
           </S.Row>
           <Button
-            onClick={(form.submitForm, resetToDelivery, goToConfScreean)}
+            onClick={(form.submitForm, goToConfScreean)}
             disabled={false}
             type="submit"
           >
             Finalizar pagamento
           </Button>
-          <Button onClick={changeForm} type="button">
+          <Button onClick={swapForm} type="button">
             Voltar para a edição de endereço
           </Button>
         </S.FormContainer>

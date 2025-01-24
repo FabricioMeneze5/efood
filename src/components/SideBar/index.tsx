@@ -8,7 +8,6 @@ import { RootReducer } from '../../store'
 
 import Cart from '../Cart'
 import Checkout from '../Checkout'
-// import Payment from '../Payment'
 import ConfirmationScreen from '../ConfirmationScreen'
 import Button from '../Button'
 
@@ -43,6 +42,7 @@ const SideBar = () => {
     closeCart(),
       clearCart(),
       setCartState(true),
+      setCheckoutState(false),
       setConfirmationScreenState(false)
   }
 
@@ -55,6 +55,7 @@ const SideBar = () => {
           backToCart={backToCart}
           goToConfScreean={goToConfirmationScreen}
           isOpen={checkoutState}
+          resetState={!cartState && !confirmationScreenState}
         />
         <ConfirmationScreen isOpen={confirmationScreenState} />
         {cartState ? (
@@ -65,12 +66,12 @@ const SideBar = () => {
           >
             Continuar com a entrega
           </Button>
-        ) : checkoutState ? (
-          <></>
-        ) : (
+        ) : confirmationScreenState ? (
           <Button onClick={finishPurchase} type="button">
             Concluir
           </Button>
+        ) : (
+          <></>
         )}
       </S.SideBar>
     </S.Container>
