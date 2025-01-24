@@ -17,7 +17,6 @@ const SideBar = () => {
   const dispatch = useDispatch()
   const [cartState, setCartState] = useState(true)
   const [checkoutState, setCheckoutState] = useState(false)
-  const [paymentState, setPaymentState] = useState(false)
   const [confirmationScreenState, setConfirmationScreenState] = useState(false)
 
   const closeCart = () => {
@@ -52,8 +51,11 @@ const SideBar = () => {
       <S.Overlay onClick={closeCart} />
       <S.SideBar>
         <Cart isOpen={cartState} />
-        <Checkout onClick={goToConfirmationScreen} isOpen={checkoutState} />
-        {/* <Payment isOpen={paymentState} /> */}
+        <Checkout
+          backToCart={backToCart}
+          goToConfScreean={goToConfirmationScreen}
+          isOpen={checkoutState}
+        />
         <ConfirmationScreen isOpen={confirmationScreenState} />
         {cartState ? (
           <Button
@@ -64,20 +66,7 @@ const SideBar = () => {
             Continuar com a entrega
           </Button>
         ) : checkoutState ? (
-          <>
-            <Button onClick={backToCart} type="button">
-              Voltar para o carrinho
-            </Button>
-          </>
-        ) : paymentState ? (
-          <>
-            <Button onClick={goToConfirmationScreen} type="button">
-              Finalizar pagamento
-            </Button>
-            {/* <Button onClick={backToCheckout} type="button">
-              Voltar para a edição de endereço
-            </Button> */}
-          </>
+          <></>
         ) : (
           <Button onClick={finishPurchase} type="button">
             Concluir

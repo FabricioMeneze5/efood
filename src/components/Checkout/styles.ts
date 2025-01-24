@@ -9,16 +9,25 @@ type InputGroupProps = {
 export const Container = styled.div`
   display: none;
 
-  &.is-open {
-    display: block;
-  }
-
   form {
     > ${ButtonContainer} {
       margin-top: 16px;
     }
   }
+
+  &.is-open {
+    display: block;
+  }
 `
+
+export const FormContainer = styled.div`
+  display: none;
+
+  &.is-open {
+    display: block;
+  }
+`
+
 export const Row = styled.div`
   display: flex;
   justify-content: space-between;
