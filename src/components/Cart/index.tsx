@@ -4,7 +4,6 @@ import { RootReducer } from '../../store'
 import { remove } from '../../store/reducers/cart'
 
 import { priceBRL, getTotalPrice } from '../../utils/index'
-import Button from '../Button'
 
 import * as S from './styled'
 

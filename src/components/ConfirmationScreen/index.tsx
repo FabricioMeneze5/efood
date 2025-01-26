@@ -1,3 +1,6 @@
+import { useSelector } from 'react-redux'
+import { RootReducer } from '../../store'
+
 import * as S from './styles'
 
 type Props = {
@@ -5,9 +8,11 @@ type Props = {
 }
 
 const ConfirmationScreen = ({ isOpen }: Props) => {
+  const { idOrder } = useSelector((state: RootReducer) => state.cart)
+
   return (
     <S.Container className={isOpen ? 'is-open' : ''}>
-      <h3>Pedido realizado - #XXXXXX</h3>
+      <h3>Pedido realizado - {idOrder}</h3>
       <p>
         Estamos felizes em informar que seu pedido já está em processo de
         preparação e, em breve, será entregue no endereço fornecido.

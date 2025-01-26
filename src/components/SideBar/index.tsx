@@ -42,7 +42,6 @@ const SideBar = () => {
     closeCart(),
       clearCart(),
       setCartState(true),
-      setCheckoutState(false),
       setConfirmationScreenState(false)
   }
 

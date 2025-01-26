@@ -18,11 +18,12 @@
   2.5 OK) estado do sideBar
   2.6 OK) sideBar navigation
   2.7) string to number
-  2.8) mostrar valor total no componente do formulario
+  2.8 OK) mostrar valor total no componente do formulario
+  2.9 OK) limpar form ao concluir pedido
 
 3) Crie a tela de confirmação do pedido;
   3.1 OK) tela de conclusão
-  3.2) renderizar orderId
+  3.2 OK) renderizar orderId
   3.3 OK) limpar carrinho ao concluir pedido
   3.4) criar Loaders
   3.5) npx eslint . para corrigir erros

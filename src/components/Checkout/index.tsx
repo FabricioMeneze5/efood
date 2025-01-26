@@ -1,9 +1,13 @@
+import { useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
 import InputMask from 'react-input-mask'
-import { useEffect, useState } from 'react'
 
+import { RootReducer } from '../../store'
 import { usePurchaseMutation } from '../../services/api'
+import { setIdOrder } from '../../store/reducers/cart'
+import { getTotalPrice, priceBRL } from '../../utils'
 
 import Button from '../Button'
 
@@ -22,11 +26,13 @@ const Checkout = ({
   goToConfScreean,
   resetState
 }: Props) => {
+  const { items } = useSelector((state: RootReducer) => state.cart)
   const [showForm, setShowForm] = useState({
     delivery: true,
     payment: false
   })
   const [purchase, { data, isError, isLoading }] = usePurchaseMutation()
+  const dispatch = useDispatch()
 
   useEffect(() => {
     if (resetState) {
@@ -83,8 +89,8 @@ const Checkout = ({
         .min(4, 'Deve conter 4 caracteres')
         .required('Campo obrigatório')
     }),
-    onSubmit: (values) => {
-      purchase({
+    onSubmit: async (values) => {
+      const result = await purchase({
         delivery: {
           receiver: values.fullName,
           address: {
@@ -106,13 +112,16 @@ const Checkout = ({
             }
           }
         },
-        products: [
-          {
-            id: 1,
-            price: 10
-          }
-        ]
+        products: items.map((item) => ({
+          id: item.id,
+          price: item.preco
+        }))
       })
+      if (result.data) {
+        dispatch(setIdOrder(result.data.orderId))
+        goToConfScreean()
+        form.resetForm()
+      }
     }
   })
 
@@ -133,8 +142,8 @@ const Checkout = ({
   }
 
   return (
-    <form onSubmit={form.handleSubmit}>
-      <S.Container className={isOpen ? 'cont-open' : ''}>
+    <S.Container className={isOpen ? 'cont-open' : ''}>
+      <form onSubmit={form.handleSubmit}>
         <S.FormContainer className={showForm.delivery ? 'form-open' : ''}>
           <h3>Entrega</h3>
           <S.Row>
@@ -230,7 +239,10 @@ const Checkout = ({
           </Button>
         </S.FormContainer>
         <S.FormContainer className={showForm.payment ? 'form-open' : ''}>
-          <h3>Pagamento - Valor a pagar R$ 190,90</h3>
+          <h3>
+            Pagamento - Valor a pagar
+            <span>{priceBRL(getTotalPrice(items))}</span>
+          </h3>
           <S.Row>
             <S.InputGroup>
               <label htmlFor="cardName">Nome no cartão</label>
@@ -307,19 +319,16 @@ const Checkout = ({
               </small>
             </S.InputGroup>
           </S.Row>
-          <Button
-            onClick={(form.submitForm, goToConfScreean)}
-            disabled={false}
-            type="submit"
-          >
+          <Button onClick={form.submitForm} type="submit">
             Finalizar pagamento
           </Button>
+
           <Button onClick={swapForm} type="button">
             Voltar para a edição de endereço
           </Button>
         </S.FormContainer>
-      </S.Container>
-    </form>
+      </form>
+    </S.Container>
   )
 }
 

@@ -53,6 +53,7 @@ export const InputGroup = styled.div<InputGroupProps>`
     height: 32px;
     border: 1px solid transparent;
     padding: 8px;
+    background-color: ${colors.secondary};
   }
 
   small {

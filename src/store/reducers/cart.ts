@@ -3,11 +3,13 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 type CartSlice = {
   items: MenuItem[]
   isOpen: boolean
+  idOrder: string
 }
 
 const initialState: CartSlice = {
   items: [],
-  isOpen: false
+  isOpen: false,
+  idOrder: ''
 }
 
 const cartSlice = createSlice({
@@ -32,11 +34,15 @@ const cartSlice = createSlice({
     close: (state) => {
       state.isOpen = false
     },
+    setIdOrder: (state, action: PayloadAction<string>) => {
+      state.idOrder = action.payload
+    },
     clear: (state) => {
       state.items = []
+      state.idOrder = ''
     }
   }
 })
 
-export const { add, open, close, remove, clear } = cartSlice.actions
+export const { add, open, close, remove, clear, setIdOrder } = cartSlice.actions
 export default cartSlice.reducer
