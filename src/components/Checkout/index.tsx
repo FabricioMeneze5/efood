@@ -31,7 +31,7 @@ const Checkout = ({
     delivery: true,
     payment: false
   })
-  const [purchase, { data, isError, isLoading }] = usePurchaseMutation()
+  const [purchase, { isLoading }] = usePurchaseMutation()
   const dispatch = useDispatch()
 
   useEffect(() => {
@@ -141,6 +141,14 @@ const Checkout = ({
     }))
   }
 
+  const goToPayment = () => {
+    const getFields = ['fullName', 'address', 'city', 'cep', 'number']
+    const hasErrors = getFields.some((field) => field in form.errors)
+    const hasTouched = getFields.some((field) => field in form.touched)
+
+    return hasErrors || !hasTouched
+  }
+
   return (
     <S.Container className={isOpen ? 'cont-open' : ''}>
       <form onSubmit={form.handleSubmit}>
@@ -231,7 +239,7 @@ const Checkout = ({
               </small>
             </S.InputGroup>
           </S.Row>
-          <Button onClick={swapForm} disabled={false} type="button">
+          <Button onClick={swapForm} disabled={goToPayment()} type="button">
             Continuar com o pagamento
           </Button>
           <Button onClick={backToCart} type="button">
